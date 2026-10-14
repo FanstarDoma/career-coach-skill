@@ -1,0 +1,4 @@
+interface:
+  display_name: "求职辅导（审阅稿）"
+  short_description: "通过简短交流探索求职方向，结合真实岗位制定准备计划并修改简历"
+  default_prompt: "使用 $career-coach，从我目前的求职困惑开始，结合已有信息给出判断并帮我完成最优先的一步。"

@@ -1,0 +1,88 @@
+求职辅导 Skill · v0.5 安装与开始使用
+安装包：career-coach-v0.5-install.zip
+安装说明核验日期：2026-10-13
+
+这是可安装的标准 Agent Skill，支持探索求职方向、安排准备重点、按目标岗位选择和修改简历经历。当前为试用稿，安装后可能显示“求职辅导（审阅稿）”或 career-coach。
+
+同一个安装包可以按下列方式使用；各工具的安装入口不同。核心辅导规则沿用 v0.5，本次只整理分发方式。
+
+一、Claude 网页版／桌面版
+
+1. 在 Settings > Capabilities 中启用 Code execution and file creation。组织账户还须允许使用和创建 Skills。
+2. 打开 Customize > Skills，点击“+”或“Create skill”，选择“Upload a skill”。
+3. 直接上传 career-coach-v0.5-install.zip，无需解压；确认新增的 career-coach 已启用。
+4. 新开聊天，发送：“请使用 career-coach 求职辅导 Skill。我目前最想解决的问题是……”。
+
+如果没有上传入口，先检查账户和组织设置；不要将 ZIP 作为普通聊天附件后就视为已安装。
+
+官方说明：https://support.claude.com/en/articles/12512180-use-skills-in-claude
+
+二、Codex 本地环境
+
+不熟悉文件夹操作，可以让 Codex 帮忙：将下载的 ZIP 放到它能读取的本地位置，把实际路径提供给它，再发送：
+
+请将我提供的 career-coach-v0.5-install.zip 安装为个人 Skill。先读取包内文件并核对 name 为 career-coach，再将整个 career-coach 文件夹放入 ~/.agents/skills/。保留所有 references 和 agents 文件。若已安装同名 Skill，先比较内容；相同则无需重复安装，不同则说明差异，先不要覆盖。完成后报告实际安装路径、文件是否齐全，以及如何在新聊天中调用。
+
+也可以手动安装：解压 ZIP，把整个 career-coach 文件夹放入用户主目录的 .agents/skills/ 下。最终应当是：
+
+~/.agents/skills/career-coach/SKILL.md
+~/.agents/skills/career-coach/references/recruiter-review.md
+~/.agents/skills/career-coach/references/resume-example.md
+~/.agents/skills/career-coach/agents/openai.yaml
+
+不要再多套一层 career-coach 文件夹。Windows 本地环境中，用户主目录通常可通过 %USERPROFILE% 找到；若 Codex 运行在 WSL 或远程环境，安装到实际运行环境的用户主目录。
+
+新开聊天，从 Skill 选择器里选择“求职辅导”；Codex CLI／IDE 中也可以输入：
+$career-coach 我想先理清适合探索哪些求职方向。
+
+如果新聊天尚未显示，重启客户端后再检查。普通 ChatGPT 网页聊天中上传此 ZIP 不等于安装；本包提供的是本地独立 Skill，未发布为 ChatGPT 插件。
+
+OpenAI Docs：https://learn.chatgpt.com/docs/build-skills
+
+三、Claude Code 本地环境
+
+解压同一个 ZIP，将整个 career-coach 文件夹放入：
+~/.claude/skills/career-coach/
+
+确认其中直接包含 SKILL.md 和 references 文件夹。也可以将安装包路径交给 Claude Code，让它按上述位置安装；已有同名 Skill 时先比较，不直接覆盖。
+
+新开会话后输入：
+/career-coach 我有一段经历，希望针对目标岗位修改。
+
+本地目录方式适用于本机 Claude Code；Cowork 或云端会话应按其账户中的 Skills 入口安装，不能假设会读取本机目录。
+
+官方说明：https://code.claude.com/docs/en/skills
+
+四、其他支持 Agent Skills 的工具
+
+本包采用 SKILL.md 加 supporting references 的通用结构，没有运行脚本、固定 API key 或专属服务依赖。若工具支持导入 Agent Skills，按其官方说明导入 ZIP 或完整 career-coach 文件夹；不同产品不能统一使用同一个安装命令。尚未验证的工具不预先宣称兼容。
+
+五、安装后可以直接这样问
+
+- 我还不确定找什么方向，希望从自己做过的事情开始理清选择。
+- 我想申请商业分析实习，每周能准备 3 小时，帮我决定先做什么。
+- 这是目标岗位和一段真实经历，请判断哪些内容值得突出、哪些事实需要补充，再给我修改稿。
+
+用自己的真实问题即可，无需先看规则文件。若要改简历，可以先提供一段，并去掉联系方式等不必要的个人信息。
+
+六、怎样确认装好了
+
+先确认 Skill 出现在工具列表或加载记录里，再明确调用一次，查看它是否读取 career-coach 的规则；简历重要改写时还应按需使用 recruiter-review.md。仅仅回复了一段求职建议，不能证明 Skill 已被加载。
+
+本安装包已检查文件结构、引用和 ZIP 完整性；尚未在测试者的客户端完成导入和真实对话验证。若安装失败，请反馈产品名、版本和错误原文；若使用效果不好，保留相关输入输出即可。
+
+首次试用建议只解决一个真实问题。结束后告诉分享者：哪段有用、哪里想退出、有没有写错或削弱真实经历。
+
+七、停用和更新
+
+在有 Skills 管理界面的工具中关闭本 Skill 即可。通过本地目录安装时，可将本次安装的 career-coach 文件夹移出 Skills 目录，再新开会话；不要删除其他技能。
+
+后续新版本先保存旧版本并比较，再按对应工具更新。这个 ZIP 没有自动更新程序。
+
+文件说明
+
+包内只有一个 career-coach 文件夹，包含 SKILL.md、两个 references 文件和 Codex 的显示信息 agents/openai.yaml。后者仅供支持它的宿主读取；核心规则和参考内容不依赖这份显示信息。
+
+安装包不收取费用，也不要求你向分享者提供账号或 API key。使用时仍依赖你所选 AI 工具的账号、额度和联网能力。本包不含自动回传反馈、投递申请或上传简历的脚本。
+
+标准打包结构参考：https://support.claude.com/en/articles/12512198-how-to-create-custom-skills
