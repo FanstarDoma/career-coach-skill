@@ -1,6 +1,8 @@
 求职辅导 Skill · v0.5 安装与开始使用
 安装包：career-coach-v0.5-install.zip
 安装说明核验日期：2026-10-13
+版本与下载：https://github.com/FanstarDoma/career-coach-skill/releases/tag/v0.5
+请选择附件 career-coach-v0.5-install.zip；GitHub 自动生成的源码 ZIP 包含整个仓库。
 
 这是可安装的标准 Agent Skill，支持探索求职方向、安排准备重点、按目标岗位选择和修改简历经历。当前为试用稿，安装后可能显示“求职辅导（审阅稿）”或 career-coach。
 
@@ -81,7 +83,7 @@ OpenAI Docs：https://learn.chatgpt.com/docs/build-skills
 
 文件说明
 
-包内只有一个 career-coach 文件夹，包含 SKILL.md、两个 references 文件和 Codex 的显示信息 agents/openai.yaml。后者仅供支持它的宿主读取；核心规则和参考内容不依赖这份显示信息。
+包内只有一个 career-coach 文件夹，包含 SKILL.md、两个 references 文件、Codex 的显示信息 agents/openai.yaml，以及仓库 MIT 许可证原文 LICENSE。后者仅供支持它的宿主读取；核心规则和参考内容不依赖这份显示信息。
 
 安装包不收取费用，也不要求你向分享者提供账号或 API key。使用时仍依赖你所选 AI 工具的账号、额度和联网能力。本包不含自动回传反馈、投递申请或上传简历的脚本。
 
